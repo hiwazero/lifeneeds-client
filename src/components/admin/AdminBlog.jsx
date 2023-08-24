@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ListPlaceholder from "../skeleton/ListPlaceHolder";
+import ListPlaceholder from "../skeleton/ListSkeleton";
 import { getToken } from "../../url/token";
 import { Link } from "react-router-dom";
 import { Button, Card } from "flowbite-react";

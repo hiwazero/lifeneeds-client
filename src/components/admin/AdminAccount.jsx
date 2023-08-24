@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ListPlaceholder from "../skeleton/ListPlaceHolder";
+import ListSkeleton from "../skeleton/ListSkeleton";
 import axios from "axios";
 import { getToken } from "../../url/token";
 
@@ -81,7 +81,7 @@ const AdminAccount = () => {
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               {accounts.length === 0 ? (
-                <ListPlaceholder />
+                <ListSkeleton />
               ) : (
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
