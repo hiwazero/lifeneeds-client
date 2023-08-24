@@ -1,4 +1,4 @@
-const ListPlaceholder = () => {
+const ListSkeleton = () => {
   return (
     <>
       <div
@@ -106,4 +106,4 @@ const ListPlaceholder = () => {
   );
 };
 
-export default ListPlaceholder;
+export default ListSkeleton;

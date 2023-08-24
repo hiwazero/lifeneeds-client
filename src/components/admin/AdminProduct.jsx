@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Buffer } from "buffer";
 import axios from "axios";
 import { getToken } from "../../url/token";
+import ListSkeleton from "../skeleton/ListSkeleton";
 
 const AdminProduct = () => {
   const [products, setProducts] = useState([]);
@@ -47,8 +48,7 @@ const AdminProduct = () => {
               </Link>
 
               {products.length === 0 ? (
-                // <ListPlaceholder />
-                <h1>LOADING</h1>
+                <ListSkeleton />
               ) : (
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">

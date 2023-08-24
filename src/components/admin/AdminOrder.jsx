@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { getToken } from "../../url/token";
-import ListPlaceholder from "../skeleton/ListPlaceHolder";
+import ListSkeleton from "../skeleton/ListSkeleton";
 import { Card } from "flowbite-react";
 
 const AdminOrder = () => {
@@ -49,7 +49,7 @@ const AdminOrder = () => {
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               {isLoading ? (
-                <ListPlaceholder />
+                <ListSkeleton />
               ) : orders.length === 0 ? (
                 <Card>
                   <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
