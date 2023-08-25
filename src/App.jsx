@@ -49,6 +49,15 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "/login", element: <Login /> },
+  { path: "/register", element: <Register /> },
+  { path: "/shop", element: <Shop /> },
+  { path: "/cart", element: <Cart /> },
+  { path: "/blog", element: <BlogCard /> },
+  { path: "/shop", element: <Shop /> },
+  { path: "product/:id", element: <ProductDetail /> },
+  { path: "/profile", element: <Profile /> },
+  { path: "/admin", element: <AdminSideNav /> },
   {
     path: "/admin",
     element: <AdminSideNav />,
@@ -70,15 +79,6 @@ const router = createBrowserRouter([
       { path: "users", element: <AdminAccount /> },
     ],
   },
-  { path: "/login", element: <Login /> },
-  { path: "/register", element: <Register /> },
-  { path: "/shop", element: <Shop /> },
-  { path: "/cart", element: <Cart /> },
-  { path: "/blog", element: <BlogCard /> },
-  { path: "/shop", element: <Shop /> },
-  { path: "product/:id", element: <ProductDetail /> },
-  { path: "/profile", element: <Profile /> },
-  { path: "/admin", element: <AdminSideNav /> },
 ]);
 
 function App() {

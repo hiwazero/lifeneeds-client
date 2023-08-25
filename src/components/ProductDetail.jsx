@@ -55,6 +55,10 @@ const ProductDetail = () => {
   );
 
   const addToCart = async () => {
+    if (getToken() === null) {
+      navigate("../../login");
+    }
+
     try {
       const res = await axios.post(
         `${import.meta.env.VITE_API_URL}/order`,
@@ -113,9 +117,7 @@ const ProductDetail = () => {
               <div className="flex mb-4">
                 <Star key={product._id} rating={product.rating} />
               </div>
-              <p className="leading-relaxed">
-                {product.description}
-              </p>
+              <p className="leading-relaxed">{product.description}</p>
               <div className="flex flex-col gap-2 md:flex-row md:items-center mt-6 pb-5 border-b-2 border-gray-200 mb-5">
                 <div className="flex items-center">
                   <span className="mr-3">Color</span>

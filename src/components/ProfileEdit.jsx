@@ -54,18 +54,26 @@ const ProfileEdit = () => {
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setEditProfile((prev) => ({ ...prev, [name]: value }));
+    console.log("working");
   };
 
   const submitHandler = async (event) => {
     event.preventDefault();
-
+    console.log(editProfile);
     try {
-      await axios.put(`${import.meta.env.VITE_API_URL}/users/me`, editProfile, {
-        headers: {
-          Authorization: `Bearer ${getToken()}`,
-        },
-      });
-      window.location.href = "";
+      const res = await axios.put(
+        `${import.meta.env.VITE_API_URL}/users/me`,
+        editProfile,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken()}`,
+          },
+        }
+      );
+
+      if (res.status === 200) {
+        window.location.href = "";
+      }
     } catch (error) {
       console.log(error);
     }
@@ -251,6 +259,7 @@ const ProfileEdit = () => {
                   className="font-worksans text-xl shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="middlename"
                   placeholder={userProfile.middlename}
+                  onChange={onChangeHandler}
                 />
                 <div className="mt-2 flex gap-2">
                   <Button type="submit" color="success">
@@ -306,6 +315,7 @@ const ProfileEdit = () => {
                   className="font-worksans text-xl shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="lastname"
                   placeholder={userProfile.lastname}
+                  onChange={onChangeHandler}
                 />
                 <div className="mt-2 flex gap-2">
                   <Button type="submit" color="success">
@@ -361,6 +371,7 @@ const ProfileEdit = () => {
                   className="font-worksans text-xl shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="address"
                   placeholder={userProfile.address}
+                  onChange={onChangeHandler}
                 />
                 <div className="mt-2 flex gap-2">
                   <Button type="submit" color="success">

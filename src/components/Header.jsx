@@ -32,7 +32,9 @@ const Header = () => {
       }
     };
 
-    getProfile();
+    if (getToken() !== null) {
+      getProfile();
+    }
   }, []);
 
   const showNavHandler = () => {
@@ -282,7 +284,7 @@ const Header = () => {
               ) : (
                 <div
                   title=""
-                  className="text-sm font-medium text-white transition-all duration-200 lg:text-base hover:text-opacity-70 focus:text-opacity-70"
+                  className="cursor-pointer text-sm font-medium text-white transition-all duration-200 lg:text-base hover:text-opacity-70 focus:text-opacity-70"
                   onClick={logoutHandler}
                 >
                   {" "}

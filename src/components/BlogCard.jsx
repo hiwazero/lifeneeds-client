@@ -17,18 +17,16 @@ const BlogCard = () => {
     fetchData();
   }, []);
 
-  console.log(blogs);
-
   return (
     <>
       <div className="min-h-screen my-10">
         {blogs.length > 0 &&
           blogs.map((blog) => {
             return (
-              <div className="mx-auto w-96 lg:w-[50%] overflow-hidden rounded-lg bg-white shadow px-2 md:px-0">
+              <div className="my-3 mx-auto w-96 lg:w-[50%] overflow-hidden rounded-lg bg-white shadow-lg border-gray-900 px-2 md:px-0">
                 <img
                   src={`data:image/png;base64,${base64Image(blog.image)}`}
-                  className="aspect-video w-full object-contain"
+                  className="my-3 aspect-video w-full object-contain"
                   alt=""
                 />
                 <div className="p-4">

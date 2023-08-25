@@ -2,12 +2,17 @@ import Logo from "../assets/logo-white.png";
 import BackgroundImg from "../assets/background-img.jpg";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Alert from "./Alert";
+import { getToken } from "../url/token";
 
 const Login = () => {
   const [loginData, setLoginData] = useState();
   const [showAlert, setShowAlert] = useState(undefined);
+
+  if (getToken() !== null) {
+    window.location.href = "./shop";
+  }
 
   const backgroundStyle = {
     backgroundImage: `url(${BackgroundImg})`,
@@ -29,8 +34,8 @@ const Login = () => {
 
       if (res.status === 200) {
         sessionStorage.setItem("accessToken", res.data.token);
+        window.location.href = "./shop";
       }
-      window.location.href = "../shop";
     } catch (error) {
       if (error.response.status === 400) {
         setShowAlert(true);
